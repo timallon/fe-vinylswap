@@ -17,7 +17,20 @@ function Signup() {
         });
       };
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
+      try{
+        const response = await fetch ("http://localhost:5005/auth/signup", {
+          method:"POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(state)
+
+        })
+        const newUser = await response.json()
+        console.log(newUser)
+      }
+      catch(err){
+        console.log(err)
+      }
         event.preventDefault();
         let user = event.target.userName.value;
         let welcomeGreeting = `Hi ${user}, and welcome to VinylSwap. Please make sure to share some records before searching.`;
