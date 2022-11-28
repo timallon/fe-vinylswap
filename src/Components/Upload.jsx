@@ -9,6 +9,7 @@ function Upload() {
     
 
     async function handleSubmit(event) {
+        event.preventDefault()
         const formData = new FormData();
         const image = event.target.imageUrl.files[0];
         formData.append("imageUrl", image);
