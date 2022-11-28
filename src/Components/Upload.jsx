@@ -1,13 +1,21 @@
 import axios from "axios";
+import { useState } from "react";
 
 function Upload() {
-    async function handleSubmit(event) {
-        const image = event.target.imageUrl.files[0];
-        const formData = new FormData();
-        formData.append("imageUrl", image)
-        let newImage = await axios.post("http://localhost:5005/records/upload", formData)
+    const [title, setTitle] = useState("");
 
- /*           const response = await fetch ("http://localhost:5005/auth/upload", {
+    async function handleSubmit(event) {
+        const formData = new FormData();
+        const image = event.target.imageUrl.files[0];
+        formData.append("imageUrl", image)
+        formData.append("title", title )
+        let newTitle = await axios.post("http://localhost:5005/records/upload", formData)
+        
+
+        console.log('new title:', newTitle.data)
+        
+
+ /*           const response = await fetch ("http://localhost:5005/records/upload", {
                 method:"POST",
                 headers: { "Content-Type": "application/json" },
                 body: {formData},
@@ -15,16 +23,16 @@ function Upload() {
             })
             const newImage = await response.json()
             */
-            console.log(newImage.data)
 
 
     }
     return (
         <div>
-            <h1>Vinyl upload page</h1>
+            <h1>Hi josh</h1>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input type="file" name="imageUrl" accept="image/jpg" />
-                <input type="" name="" accept="image/jpg" />
+                <h5>Title</h5>
+                <input onChange={ (e) => {setTitle(e.target.value)} } type="text" name="title" value={title}/>
                 <button type="submit">Submit</button> 
             </form>
         </div>

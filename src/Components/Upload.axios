@@ -30,3 +30,10 @@ function Upload() {
         </div>
 )};
 export default Upload;
+
+/*
+
+<form method="POST" action="/upload" encType="multipart/form-data">
+                <input type="file" name="imageUrl" accept="image/png, image/jpg" />
+                <button type="submit">Submit</button> 
+            </form>*/

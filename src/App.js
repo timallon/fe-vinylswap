@@ -5,6 +5,7 @@ import Search from "./Components/Search";
 import Signup from "./Components/Signup";
 import { Routes, Route } from "react-router-dom";
 import Upload from "./Components/Upload";
+import Record from "./Components/Record";
 
 function App() {
 
@@ -14,9 +15,10 @@ function App() {
       <Routes>
         
         <Route path="/" element={ <Login /> } />
+        <Route path="/record" element={ <Record /> } />
         <Route path="/signup" element={ <Signup /> } />
         <Route path="/search" element={ <Search /> } />
-        <Route path="/upload" element={ <Upload /> } />
+        <Route path="/records/upload" element={ <Upload /> } />
       </Routes>
       
     </div>
