@@ -20,7 +20,7 @@ useEffect( () => {
         <h1 >{record.title } ({record.yearReleased.substring(0,4)}) by {record.artist}</h1>
         <p>Label: {record.label}</p>
         <p>Genre: {record.genre}</p>
-        <p>Picture: {record.image}</p>
+        <img src={record.image} alt="Record Cover"/>
         <p></p>
       </div>
       )}</div>
