@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../context/auth.context';
 
 function Search() {
+    const value = useContext(AuthContext)
     const [records, setRecords] = useState([]);
     const fetchRecords = async() => {
 // Fetches all vinyl records on the database:
@@ -11,6 +13,7 @@ function Search() {
 useEffect( () => {
     fetchRecords()
 }, [] );
+    if (1 === 2) {
     return (
         
         <div>
@@ -25,7 +28,15 @@ useEffect( () => {
       </div>
       )}</div>
 
-    );
+    )} else {
+        return (
+            <div>
+                <h1>
+                    Go away!
+                </h1>
+            </div>
+        )
+    }
 }
 
 export default Search;

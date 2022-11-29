@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
+import { AuthContext } from '../context/auth.context';
 
 
 
@@ -15,6 +16,9 @@ const Login = () => {
   
   const [greeting, setGreeting] = useState([]);
   //from signup page
+
+  const { storeToken } = useContext(AuthContext)
+
   function handleChange(event) {
       const currentValue = event.target.value;
       setState({
@@ -38,6 +42,7 @@ const Login = () => {
     console.log('response: ', parsed)
     const token = parsed.token;
     localStorage.setItem("token", token)
+    console.log(token)
   }
 
 return (
