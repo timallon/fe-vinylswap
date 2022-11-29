@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/auth.context';
-
 
 
 
@@ -17,7 +15,8 @@ const Login = () => {
   const [greeting, setGreeting] = useState([]);
   //from signup page
 
-  const { storeToken } = useContext(AuthContext)
+  // use functions from AuthContext
+  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   function handleChange(event) {
       const currentValue = event.target.value;
@@ -41,8 +40,11 @@ const Login = () => {
     setError(parsed)
     console.log('response: ', parsed)
     const token = parsed.token;
-    localStorage.setItem("token", token)
-    console.log(token)
+   /*  localStorage.setItem("token", token) */
+    storeToken(token);
+// get the stored token and verify it using auth.context:
+    authenticateUser();
+    
   }
 
 return (
