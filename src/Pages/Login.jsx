@@ -43,7 +43,7 @@ const Login = () => {
    /*  localStorage.setItem("token", token) */
     storeToken(token);
 // get the stored token and verify it using auth.context:
-    authenticateUser();
+authenticateUser();
     
   }
 

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Login from "./Components/Login";
+import Login from "./Pages/Login";
 import Navbar from "./Components/Navbar";
-import Search from "./Components/Search";
-import Signup from "./Components/Signup";
+import Search from "./Pages/Search";
+import Signup from "./Pages/Signup";
 import { Routes, Route } from "react-router-dom";
-import Upload from "./Components/Upload";
+import Upload from "./Pages/Upload";
 import Record from "./Components/Record";
 import IsPrivate from "./Components/IsPrivate";
 import Collection from "./Pages/Collection";
