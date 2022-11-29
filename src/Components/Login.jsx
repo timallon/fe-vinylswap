@@ -1,8 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
 
-//Mat's lecture
+
+
+
+  //Mat's lecture
 const Login = () => {
+    //from signup page:
+    const [state, setState] = useState({
+      password: '',
+      userName: '',
+    });
+  const [error, setError] = useState('');
+  
+  const [greeting, setGreeting] = useState([]);
+  //from signup page
+  function handleChange(event) {
+      const currentValue = event.target.value;
+      setState({
+        ...state,
+        [event.target.name]: currentValue,
+      });
+    };
+
   const handleSubmit = async event => { 
     event.preventDefault();
 
@@ -11,27 +31,14 @@ const Login = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify(state),
     })
     const parsed = await response.json()
     setError(parsed)
-    console.log(parsed)
+    console.log('response: ', parsed)
+    const token = parsed.token;
+    localStorage.setItem("token", token)
   }
-
-  //from signup page:
-    const [state, setState] = useState({
-        password: '',
-        userName: '',
-      });
-    const [greeting, setGreeting] = useState([]);
-//from signup page
-    function handleChange(event) {
-        const currentValue = event.target.value;
-        setState({
-          ...state,
-          [event.target.name]: currentValue,
-        });
-      };
 
 return (
     
