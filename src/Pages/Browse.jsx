@@ -1,19 +1,20 @@
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/auth.context';
 
-function Search() {
+function Browse() {
     const value = useContext(AuthContext)
     const [records, setRecords] = useState([]);
     const fetchRecords = async() => {
-// Fetches all vinyl records on the database:
+// Fetch all vinyl records on the database:
     const response = await fetch("http://localhost:5005/records")
-    const records = await response.json()
+    const records = await response.json();
+    console.log(records)
     setRecords(records)
 };
 useEffect( () => {
     fetchRecords()
 }, [] );
-    if (1 === 2) {
+    if (1 === 1) {
     return (
         
         <div>
@@ -35,8 +36,6 @@ useEffect( () => {
                     Go away!
                 </h1>
             </div>
-        )
-    }
-}
+)}}
 
-export default Search;
+export default Browse;

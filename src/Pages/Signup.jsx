@@ -18,6 +18,7 @@ function Signup() {
       };
 
     async function handleSubmit(event) {
+      event.preventDefault()
       try{
         const response = await fetch ("http://localhost:5005/auth/signup", {
           method:"POST",

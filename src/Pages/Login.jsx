@@ -44,8 +44,7 @@ const Login = () => {
     storeToken(token);
 // get the stored token and verify it using auth.context:
 authenticateUser();
-    
-  }
+}
 
 return (
     

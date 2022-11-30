@@ -10,6 +10,7 @@ function Upload() {
 
     async function handleSubmit(event) {
         event.preventDefault()
+        const storedToken = localStorage.getItem('authToken');
         const formData = new FormData();
         const image = event.target.imageUrl.files[0];
         formData.append("imageUrl", image);
@@ -17,10 +18,11 @@ function Upload() {
         formData.append("artist", artist );
         formData.append("yearReleased", yearReleased );
         formData.append("genre", genre );
-        let newTitle = await axios.post("http://localhost:5005/records/upload", formData)
+        let newTitle = await axios.post("http://localhost:5005/records/upload", formData, { headers: { Authorization: `Bearer ${storedToken}`} })
         
 
         console.log('new title:', newTitle.data)
+        
         
 
  /*           const response = await fetch ("http://localhost:5005/records/upload", {
