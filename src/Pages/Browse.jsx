@@ -6,7 +6,8 @@ function Browse() {
     const [records, setRecords] = useState([]);
     const fetchRecords = async() => {
 // Fetch all vinyl records on the database:
-    const response = await fetch("https://vinylswap-be.fly.dev/records")
+    const { REACT_APP_MY_ENV } = process.env;   
+    const response = await fetch(`${REACT_APP_MY_ENV}/records`)
     const records = await response.json();
     console.log(records)
     setRecords(records)

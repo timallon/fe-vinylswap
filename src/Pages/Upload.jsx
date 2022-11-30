@@ -6,6 +6,7 @@ function Upload() {
     const [artist, setArtist] = useState("");
     const [yearReleased, setYearReleased] = useState("");
     const [genre, setGenre] = useState("");
+    const { REACT_APP_MY_ENV } = process.env; 
     
 
     async function handleSubmit(event) {
@@ -18,14 +19,15 @@ function Upload() {
         formData.append("artist", artist );
         formData.append("yearReleased", yearReleased );
         formData.append("genre", genre );
-        let newTitle = await axios.post("https://vinylswap-be.fly.dev/records/upload", formData, { headers: { Authorization: `Bearer ${storedToken}`} })
+        let newTitle = await axios.post(`${REACT_APP_MY_ENV}/records/upload`, formData, { headers: { Authorization: `Bearer ${storedToken}`} })
         
 
         console.log('new title:', newTitle.data)
         
         
 
- /*           const response = await fetch ("https://vinylswap-be.fly.dev/records/upload", {
+ /*             const { REACT_APP_MY_ENV } = process.env; 
+                const response = await fetch (`${REACT_APP_MY_ENV}/records/upload`, {
                 method:"POST",
                 headers: { "Content-Type": "application/json" },
                 body: {formData},

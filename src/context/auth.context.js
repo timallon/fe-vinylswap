@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import axios from "axios";
-const API_URL = "https://vinylswap-be.fly.dev";
+const { REACT_APP_MY_ENV } = process.env;
+const API_URL = REACT_APP_MY_ENV;
 const AuthContext = createContext();
 
 function AuthProviderWrapper(props) {

@@ -28,8 +28,8 @@ const Login = () => {
 
   const handleSubmit = async event => { 
     event.preventDefault();
-
-    const response = await fetch ("https://vinylswap-be.fly.dev/auth/login", {
+    const { REACT_APP_MY_ENV } = process.env; 
+    const response = await fetch (`${REACT_APP_MY_ENV}/auth/login`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

@@ -20,7 +20,8 @@ function Signup() {
     async function handleSubmit(event) {
       event.preventDefault()
       try{
-        const response = await fetch ("https://vinylswap-be.fly.dev/auth/signup", {
+        const { REACT_APP_MY_ENV } = process.env; 
+        const response = await fetch (`${REACT_APP_MY_ENV}/auth/signup`, {
           method:"POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(state)
