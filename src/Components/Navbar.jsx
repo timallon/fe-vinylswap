@@ -24,6 +24,9 @@ function Navbar() {
         <>
           <Link to="/signup"> <button>Sign Up</button> </Link>
           <Link to="/"> <button>Login</button> </Link>
+          <Link to="/records/browse"> <button>Browse</button> </Link>
+          <Link to="/records/upload"> <button>Upload</button> </Link>
+          <Link to="/records/collection"> <button>My Collection</button> </Link>
         </>
       )}
         </nav>
