@@ -29,7 +29,7 @@ const Login = () => {
   const handleSubmit = async event => { 
     event.preventDefault();
 
-    const response = await fetch ("http://localhost:5005/auth/login", {
+    const response = await fetch ("https://vinylswap-be.fly.dev/auth/login", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

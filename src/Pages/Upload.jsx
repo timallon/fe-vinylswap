@@ -18,14 +18,14 @@ function Upload() {
         formData.append("artist", artist );
         formData.append("yearReleased", yearReleased );
         formData.append("genre", genre );
-        let newTitle = await axios.post("http://localhost:5005/records/upload", formData, { headers: { Authorization: `Bearer ${storedToken}`} })
+        let newTitle = await axios.post("https://vinylswap-be.fly.dev/records/upload", formData, { headers: { Authorization: `Bearer ${storedToken}`} })
         
 
         console.log('new title:', newTitle.data)
         
         
 
- /*           const response = await fetch ("http://localhost:5005/records/upload", {
+ /*           const response = await fetch ("https://vinylswap-be.fly.dev/records/upload", {
                 method:"POST",
                 headers: { "Content-Type": "application/json" },
                 body: {formData},

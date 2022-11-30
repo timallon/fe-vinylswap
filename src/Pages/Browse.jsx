@@ -6,7 +6,7 @@ function Browse() {
     const [records, setRecords] = useState([]);
     const fetchRecords = async() => {
 // Fetch all vinyl records on the database:
-    const response = await fetch("http://localhost:5005/records")
+    const response = await fetch("https://vinylswap-be.fly.dev/records")
     const records = await response.json();
     console.log(records)
     setRecords(records)
