@@ -17,6 +17,9 @@ function Navbar() {
                   <h5>Search</h5>
                   <h5>My Collection</h5>
                   <button onClick={logOutUser}>Logout</button>
+                  <Link to="/records/browse"> <button>Browse</button> </Link>
+                  <Link to="/records/upload"> <button>Upload</button> </Link>
+                  <Link to="/records/collection"> <button>My Collection</button> </Link>
                   <span>{user && user.name}</span>
                 </>
             )}
@@ -24,9 +27,6 @@ function Navbar() {
         <>
           <Link to="/signup"> <button>Sign Up</button> </Link>
           <Link to="/"> <button>Login</button> </Link>
-          <Link to="/records/browse"> <button>Browse</button> </Link>
-          <Link to="/records/upload"> <button>Upload</button> </Link>
-          <Link to="/records/collection"> <button>My Collection</button> </Link>
         </>
       )}
         </nav>
