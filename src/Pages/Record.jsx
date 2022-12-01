@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 
-import { Link, useParams } from "react-router-dom"; // <== IMPORT 
+import { Link, useParams, useNavigate } from "react-router-dom"; // <== IMPORT 
 const { REACT_APP_MY_ENV } = process.env;
 
 
@@ -9,8 +9,8 @@ function Record(props) {
   const [record, setRecord] = useState(null);
   // Get the URL parameter `:projectId` 
   const { recordId } = useParams();            // <== ADD
-  console.log("the o0ne", record)
-  console.log(recordId)
+  const [test, setTest] = useState(false)
+
 
 
   // Helper function that makes a GET request to the API
@@ -27,9 +27,23 @@ function Record(props) {
 
   useEffect(() => {                   // <== ADD AN EFFECT
     getRecord();
-  }, []);
+  }, [test]);
 
+  //post new comment description:
+  const [description, setDescription] = useState("");
+  const navigate = useNavigate()
 
+  async function handleCommentSubmit(event) {
+    event.preventDefault();
+    const theNewComment = {
+      description: description
+    }
+    let newComment = await axios.post(`${REACT_APP_MY_ENV}/records/${recordId}`, theNewComment)
+    navigate(`/records/${recordId}`)
+    setDescription("")
+    setTest(!test)
+    console.log('new comment:', newComment.data)
+  }
 
   return (
     <div className="Record">
@@ -41,20 +55,23 @@ function Record(props) {
           <p>Record Label: {record.label}</p>
           <p>Genre: {record.genre}</p>
           <img src={record.image} alt="Record Cover" />
-        </>
-      )}
-          <form>
-            <textarea rows="3" type="text" name="description" placeholder="Add a comment." />
-            <button type="submit">Submit</button>
-          </form>
-
-          {record.comment.map((commentArray) => {
+          {record.comment.map((comment) => {
             return (
-              <div>
-                <h3>{commentArray.description}</h3>
+
+              <div key={comment._id}>
+                <h3>{comment.description}</h3>
               </div>
             )
           })}
+        </>
+      )}
+      <form onSubmit={handleCommentSubmit}>
+        {/*  <textarea rows="3" type="text" name="description" placeholder="Add a comment." /> */}
+        <input name="description" value={description} onChange={(e) => setDescription(e.target.value)} />
+        <button type="submit">Submit</button>
+      </form>
+
+
 
       {record &&
         (

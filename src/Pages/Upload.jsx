@@ -28,11 +28,8 @@ function Upload() {
         navigate(`/records/browse`)        
 
         console.log('new title:', newTitle.data)
-        
-        
-
-
     }
+    
     return (
         <div>
             <h1>Browse</h1>
