@@ -5,9 +5,11 @@ import Browse from "./Pages/Browse";
 import Signup from "./Pages/Signup";
 import { Routes, Route } from "react-router-dom";
 import Upload from "./Pages/Upload";
-import Record from "./Components/Record";
+import Record from "./Pages/Record";
 import IsPrivate from "./Components/IsPrivate";
 import Collection from "./Pages/Collection";
+import Update from "./Pages/Update";
+import EditRecord from "./Pages/EditRecord";
 
 function App() {
 
@@ -17,7 +19,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={ <Login /> } />
+        
         <Route path="/records/:recordId" element={ <IsPrivate><Record /></IsPrivate> } />
+        <Route path="/records/:recordId/update" element={ <IsPrivate><EditRecord /></IsPrivate> } />
         <Route path="/signup" element={ <Signup /> } />
         <Route path="/records/browse" element={ <IsPrivate><Browse /></IsPrivate> } />
         <Route path="/records/upload" element={ <IsPrivate><Upload /></IsPrivate> } />
