@@ -61,7 +61,7 @@ function EditRecord(props) {
     e.preventDefault();
     axios
     .delete(`${REACT_APP_MY_ENV}/records/${recordId}/delete`)
-    navigate(`/records/browse`)
+    navigate(`/records`)
   }
   
   return (

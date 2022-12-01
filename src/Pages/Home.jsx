@@ -3,7 +3,7 @@ import { AuthContext } from '../context/auth.context';
 import { Link } from "react-router-dom";
 const { REACT_APP_MY_ENV } = process.env; 
 
-function Browse() {
+function Home() {
     const value = useContext(AuthContext)
     const [records, setRecords] = useState([]);
     const fetchRecords = async() => {
@@ -45,4 +45,4 @@ useEffect( () => {
             </div>
 )}}
 
-export default Browse;
+export default Home;

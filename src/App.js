@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import Login from "./Pages/Login";
 import Navbar from "./Components/Navbar";
-import Browse from "./Pages/Browse";
+import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import { Routes, Route } from "react-router-dom";
 import Upload from "./Pages/Upload";
 import Record from "./Pages/Record";
 import IsPrivate from "./Components/IsPrivate";
 import Collection from "./Pages/Collection";
-import Update from "./Pages/Update";
 import EditRecord from "./Pages/EditRecord";
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
         <Route path="/records/:recordId" element={ <IsPrivate><Record /></IsPrivate> } />
         <Route path="/records/:recordId/update" element={ <IsPrivate><EditRecord /></IsPrivate> } />
         <Route path="/signup" element={ <Signup /> } />
-        <Route path="/records/browse" element={ <IsPrivate><Browse /></IsPrivate> } />
+        <Route path="/records/" element={ <IsPrivate><Home /></IsPrivate> } />
         <Route path="/records/upload" element={ <IsPrivate><Upload /></IsPrivate> } />
         <Route path="records/collection" element={ <IsPrivate><Collection /></IsPrivate> } />
       </Routes>
