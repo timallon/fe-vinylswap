@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import '../App.css';
 
 function Navbar() {
     const {
@@ -10,7 +11,7 @@ function Navbar() {
     } = useContext(AuthContext);
     
     return (
-        <nav>
+        <nav className="navbar">
             {isLoggedIn && (
                 <>
                   <button onClick={logOutUser}>Logout</button>
