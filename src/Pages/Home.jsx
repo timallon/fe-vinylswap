@@ -21,10 +21,8 @@ useEffect( () => {
         
         <div>
         <h1>VinylSwap Inventory</h1>
-      {records.map(record => 
+      {records.slice(0).reverse().map(record => 
       <div key={record._id}>
-
-
 
 
         <h1 >{record.title } ({record.yearReleased.substring(0,4)}) by {record.artist}</h1>

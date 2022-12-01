@@ -11,11 +11,8 @@ function Navbar() {
     
     return (
         <nav>
-            <h5>Home</h5>
             {isLoggedIn && (
                 <>
-                  <h5>Search</h5>
-                  <h5>My Collection</h5>
                   <button onClick={logOutUser}>Logout</button>
                   <Link to="/records"> <button>Home</button> </Link>
                   <Link to="/records/upload"> <button>Upload</button> </Link>

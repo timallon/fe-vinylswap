@@ -12,6 +12,7 @@ function Upload() {
     const { recordId } = useParams();
     const navigate = useNavigate()
     
+    
 
     async function handleSubmit(event) {
         event.preventDefault()
@@ -25,7 +26,7 @@ function Upload() {
         formData.append("label", label );
         formData.append("genre", genre );
         let newTitle = await axios.post(`${REACT_APP_MY_ENV}/records/upload`, formData, { headers: { Authorization: `Bearer ${storedToken}`} })
-        navigate(`/records/browse`)        
+        navigate(`/records`)        
 
         console.log('new title:', newTitle.data)
     }
