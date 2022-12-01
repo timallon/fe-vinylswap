@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 import { AuthProviderWrapper } from './context/auth.context.js';
-import { MantineProvider } from '@mantine/core'
 
 
 
@@ -14,10 +13,8 @@ root.render(
   <React.StrictMode>
     <Router>
       <AuthProviderWrapper>
-        <MantineProvider withGlobalStyles withNormalizeCSS>
-         <App />
-        </MantineProvider>
-        </AuthProviderWrapper>  
+        <App />
+      </AuthProviderWrapper>  
     </Router>
   </React.StrictMode>
 );

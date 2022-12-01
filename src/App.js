@@ -7,7 +7,6 @@ import { Routes, Route } from "react-router-dom";
 import Upload from "./Pages/Upload";
 import Record from "./Pages/Record";
 import IsPrivate from "./Components/IsPrivate";
-import Collection from "./Pages/Collection";
 import EditRecord from "./Pages/EditRecord";
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
         <Route path="/signup" element={ <Signup /> } />
         <Route path="/records/" element={ <IsPrivate><Home /></IsPrivate> } />
         <Route path="/records/upload" element={ <IsPrivate><Upload /></IsPrivate> } />
-        <Route path="records/collection" element={ <IsPrivate><Collection /></IsPrivate> } />
       </Routes>
       
     </div>
