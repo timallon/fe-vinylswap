@@ -48,30 +48,29 @@ function Record(props) {
   return (
     <div className="Record">
       {record && (
-        <>
+        <div className='details'>
           <p>Artist: {record.artist}</p>
           <p>Title: {record.title}</p>
           <p>Originally Released: {record.yearReleased}</p>
           <p>Record Label: {record.label}</p>
           <p>Genre: {record.genre}</p>
-          <img src={record.image} alt="Record Cover" />
+          <img className='detailsImage' src={record.image} alt="Record Cover" />
           {record.comment.map((comment) => {
             return (
 
-              <div key={comment._id}>
-                <h3>{comment.description}</h3>
+              <div className="comment" key={comment._id}>
+                <h5>Posted: {comment.createdAt.slice(0,10)}</h5>
+                <p>{comment.description}</p>
               </div>
             )
           })}
-        </>
+        </div>
       )}
       <form onSubmit={handleCommentSubmit}>
         {/*  <textarea rows="3" type="text" name="description" placeholder="Add a comment." /> */}
-        <input name="description" value={description} onChange={(e) => setDescription(e.target.value)} />
+        <input name="description" value={description} placeholder="Add a comment" onChange={(e) => setDescription(e.target.value)} />
         <button type="submit">Submit</button>
       </form>
-
-
 
       {record &&
         (

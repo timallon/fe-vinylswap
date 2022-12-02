@@ -32,7 +32,7 @@ function Upload() {
     }
     
     return (
-        <div>
+        <div className="upload">
             <h1>Browse</h1>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input type="file" name="imageUrl" accept="image/jpg" />
@@ -46,6 +46,8 @@ function Upload() {
                 <input onChange={ (e) => {setLabel(e.target.value)} } type="text" name="label" value={label}/>
                 <h5>Genre</h5>
                 <input onChange={ (e) => {setGenre(e.target.value)} } type="text" name="genre" value={genre}/>
+                <br></br>
+                <br></br>
                 <button type="submit">Submit</button> 
             </form>
         </div>
