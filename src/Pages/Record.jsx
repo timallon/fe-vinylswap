@@ -59,8 +59,8 @@ function Record(props) {
             return (
 
               <div className="comment" key={comment._id}>
-                <h5>Posted: {comment.createdAt.slice(0,10)}</h5>
-                <p>{comment.description}</p>
+                <h5 className='commentDescription'>Posted: {comment.createdAt.slice(0,10)}</h5>
+                <p className='commentDescription'>{comment.description}</p>
               </div>
             )
           })}
@@ -72,14 +72,14 @@ function Record(props) {
         <button type="submit">Submit</button>
       </form>
 
-      {record &&
+      {/* {record &&
         (
           <li className="Record card" key={record._id}>
             <h3>{record.title}</h3>
             <h4>Artist:</h4>
             <p>{record.artist}</p>
           </li>
-        )}
+        )} */}
 
       <Link to="/records">
         <button>Back to records</button>

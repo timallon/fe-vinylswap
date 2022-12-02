@@ -118,8 +118,10 @@ function EditRecord(props) {
         <br></br>
         
         <input type="submit" value="Submit" />
+        
       
         </div>
+        <br></br>
       </form>
       <button onClick={handleDelete}>Delete this record</button>
     </div>

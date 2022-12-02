@@ -27,7 +27,7 @@ useEffect( () => {
       <div className="box" key={record._id}>
 
 
-        <h1 >{record.title } ({record.yearReleased.substring(0,4)}) by {record.artist}</h1>
+        <h1 >{record.title } by {record.artist}</h1>
         <Link to={`/records/${record._id}`}>
     <h3>More details</h3>
   </Link>

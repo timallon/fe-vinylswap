@@ -82,6 +82,12 @@ body {
   width: 30%;
   margin: 0 auto;
   padding-top: 1%;
+  color: black;
+  text-align: left;
+}
+
+.commentDescription {
+  padding-left: 15%;
 }
 
 img {
@@ -98,15 +104,16 @@ img {
 }
 
 .detailsImage {
-  text-align: left;
+  display: flexbox;
+  flex-direction: column;
+  text-align: center;
 }
 
 .editPage {
   display: flexbox;
   justify-content: flex-end;
   padding: 2%;
-  color: #92c1f9;
-  background-color: grey;
+  background-color: #92c1f9;;
   padding-top: 5%;
   padding-right: 43%;
   text-align: right;
