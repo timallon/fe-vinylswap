@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import '../App.css'
  
 const { REACT_APP_MY_ENV } = process.env;
  
@@ -39,8 +40,8 @@ function EditRecord(props) {
     // Create an object representing the body of the PUT request
     //const requestBody = { title, artist, yearReleased, label, genre, image };
     const formData = new FormData();
-    const image = e.target.imageUrl.files[0];
-    formData.append("imageUrl", image);
+    const theImage = e.target.imageUrl.files[0];
+    formData.append("imageUrl", theImage);
     formData.append("title", title );
     formData.append("artist", artist );
     formData.append("yearReleased", yearReleased );
@@ -65,10 +66,12 @@ function EditRecord(props) {
   }
   
   return (
-    <div className="EditPage">
+    <div className="editPage">
       <h3>Edit the Record</h3>
  
-      <form onSubmit={handleFormSubmit}>
+      <form className="updateForm" onSubmit={handleFormSubmit}>
+        <div className="updateForm">
+          
         <label>Title:</label>
         <input
           type="text"
@@ -76,6 +79,7 @@ function EditRecord(props) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+        <br></br>
         
         <label>Artist:</label>
         <textarea
@@ -83,6 +87,7 @@ function EditRecord(props) {
           value={artist}
           onChange={(e) => setArtist(e.target.value)}
         />
+        <br></br>
 
         <label>Year Released:</label>
         <textarea
@@ -90,6 +95,7 @@ function EditRecord(props) {
           value={yearReleased}
           onChange={(e) => setYearReleased(e.target.value)}
         />
+        <br></br>
 
         <label>Record Label:</label>
         <textarea
@@ -97,6 +103,7 @@ function EditRecord(props) {
           value={label}
           onChange={(e) => setLabel(e.target.value)}
         />
+        <br></br>
 
         <label>Genre:</label>
         <textarea
@@ -104,11 +111,15 @@ function EditRecord(props) {
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
         />
+        <br></br>
 
         <label>Image:</label>
-        <input type="file" name="imageUrl" accept="image/jpg" />
+        <input type="file"  name="imageUrl" accept="image/jpg" />
+        <br></br>
         
         <input type="submit" value="Submit" />
+      
+        </div>
       </form>
       <button onClick={handleDelete}>Delete this record</button>
     </div>
