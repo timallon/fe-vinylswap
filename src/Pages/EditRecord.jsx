@@ -40,8 +40,9 @@ function EditRecord(props) {
     // Create an object representing the body of the PUT request
     //const requestBody = { title, artist, yearReleased, label, genre, image };
     const formData = new FormData();
-    const theImage = e.target.imageUrl.files[0];
-    formData.append("imageUrl", theImage);
+    const image = e.target.imageUrl.files[0];
+    console.log("theimage: ", image)
+    formData.append("imageUrl", image);
     formData.append("title", title );
     formData.append("artist", artist );
     formData.append("yearReleased", yearReleased );
