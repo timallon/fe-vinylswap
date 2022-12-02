@@ -117,10 +117,11 @@ img {
   padding-top: 5%;
   padding-right: 43%;
   text-align: right;
-
 }
 
-
+.signup {
+  padding-top: 5%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
